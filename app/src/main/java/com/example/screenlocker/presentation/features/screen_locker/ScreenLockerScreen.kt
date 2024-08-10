@@ -1,4 +1,4 @@
-package com.example.screenlocker.ui.widgets
+package com.example.screenlocker.presentation.features.screen_locker
 
 import android.app.Activity
 import androidx.compose.foundation.layout.Box
@@ -9,11 +9,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.screenlocker.logic.ScreenLockerViewModel
-import com.example.screenlocker.ui.theme.ScreenLockerTheme
+import com.example.screenlocker.presentation.theme.ScreenLockerTheme
 
 @Composable
-fun MainScreen(viewModel: ScreenLockerViewModel, activity: Activity) {
+fun ScreenLockerScreen(viewModel: ScreenLockerViewModel, activity: Activity) {
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier.fillMaxSize()
@@ -28,6 +27,6 @@ fun MainScreen(viewModel: ScreenLockerViewModel, activity: Activity) {
 @Composable
 fun DefaultPreview() {
     ScreenLockerTheme {
-        MainScreen(viewModel = ScreenLockerViewModel(), activity = Activity())
+        ScreenLockerScreen(viewModel = ScreenLockerViewModel(), activity = Activity())
     }
 }

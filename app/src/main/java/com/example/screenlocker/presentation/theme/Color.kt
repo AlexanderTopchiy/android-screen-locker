@@ -1,4 +1,4 @@
-package com.example.screenlocker.ui.theme
+package com.example.screenlocker.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 

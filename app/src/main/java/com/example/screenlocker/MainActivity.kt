@@ -4,9 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import com.example.screenlocker.logic.ScreenLockerViewModel
-import com.example.screenlocker.ui.theme.ScreenLockerTheme
-import com.example.screenlocker.ui.widgets.MainScreen
+import com.example.screenlocker.presentation.features.screen_locker.ScreenLockerScreen
+import com.example.screenlocker.presentation.features.screen_locker.ScreenLockerViewModel
+import com.example.screenlocker.presentation.theme.ScreenLockerTheme
 
 class MainActivity : ComponentActivity() {
 
@@ -16,7 +16,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ScreenLockerTheme {
-                MainScreen(viewModel = viewModel, activity = this)
+                ScreenLockerScreen(viewModel = viewModel, activity = this)
             }
         }
     }
