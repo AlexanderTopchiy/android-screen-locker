@@ -7,10 +7,9 @@ import android.content.Context
 import android.content.Intent
 import android.widget.RemoteViews
 import com.example.screenlocker.R
-import com.example.screenlocker.domain.screen_locker.ScreenLockerUseCase
 
 class ScreenLockerWidgetProvider : AppWidgetProvider() {
-    
+
     override fun onUpdate(
         context: Context,
         appWidgetManager: AppWidgetManager,
@@ -19,11 +18,11 @@ class ScreenLockerWidgetProvider : AppWidgetProvider() {
         for (appWidgetId in appWidgetIds) {
             val remoteViews = RemoteViews(context.packageName, R.layout.screen_locker_widget)
 
-            val intent = Intent(context, ScreenLockerWidgetProvider::class.java).apply {
-                action = "com.example.screenlocker.ACTION_LOCK_SCREEN"
+            val intent = Intent(context, ScreenLockerPermissionActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
             }
 
-            val pendingIntent = PendingIntent.getBroadcast(
+            val pendingIntent = PendingIntent.getActivity(
                 context,
                 0,
                 intent,
@@ -33,13 +32,6 @@ class ScreenLockerWidgetProvider : AppWidgetProvider() {
             remoteViews.setOnClickPendingIntent(R.id.widget_button, pendingIntent)
 
             appWidgetManager.updateAppWidget(appWidgetId, remoteViews)
-        }
-    }
-
-    override fun onReceive(context: Context, intent: Intent) {
-        super.onReceive(context, intent)
-        if (intent.action == "com.example.screenlocker.ACTION_LOCK_SCREEN") {
-            ScreenLockerUseCase.lockScreen(context)
         }
     }
 }
