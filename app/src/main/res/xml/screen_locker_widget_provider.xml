@@ -1,11 +1,4 @@
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
     android:initialLayout="@layout/screen_locker_widget"
-    android:minWidth="40dp"
-    android:minHeight="40dp"
-    android:maxWidth="40dp"
-    android:maxHeight="40dp"
-    android:minResizeWidth="40dp"
-    android:minResizeHeight="40dp"
-    android:resizeMode="none"
     android:updatePeriodMillis="0"
     android:widgetCategory="home_screen" />
